@@ -1,2 +1,2 @@
 # UNICEF-WHO-World Bank Joint Child Malnutrition Estimates
-## Prodecure for Generating Stunting and Overweight Modelled Estimates
+## Procedure for Generating Stunting and Overweight Modelled Estimates
