@@ -6,17 +6,14 @@ setwd(wd)
 source("4- Model/Programs_Feb_2020.R")
 library(tidyverse)
 
-marker <- "Stunting"
-Sex_val <- "Female_male"
-date <- paste0("NS_Mar23")
-
 ## Path to output folder
 path = "1- Sample Input Data/Analysis files/"
 
+marker <- "Stunting"
 ## Date needs to match what was used 
 ## in "5 - Sex_cross_walk_single_impute.R"
-data_one <- readRDS("1- Sample Input Data/Stunt_data_w_cov_Mar23.rds") %>% 
-  filter(.imp == 1)
+date <- paste0("NS_Mar23")
+data_one <- readRDS("1- Sample Input Data/Stunt_data_w_cov_Mar23.rds")
 
 all_data <- data_one %>% 
   mutate(
@@ -35,12 +32,12 @@ all_data <- data_one %>%
       TRUE ~ 0
     )
   ) %>% 
-  select(c("country","year", "Point.Estimate.NS", "Point.Estimate.Imp","SE_val", "ShortSource",
+  dplyr::select(c("country","year", "Point.Estimate.NS", "Point.Estimate.Imp","SE_val", "ShortSource",
            "Region","SEV", "Sex", "SMART", "Surveillance", "MCI_5_yr", "SDI")) %>% 
   rename("Y" = "Point.Estimate.NS", 
          "Y_all" = "Point.Estimate.Imp",
          "SE_var" = "SE_val") %>% 
-  arrange(country, year) #%>% filter(!is.na(Y))
+  arrange(country, year) 
 
 View(all_data)
 length(unique(all_data$country))

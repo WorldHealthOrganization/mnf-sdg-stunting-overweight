@@ -186,7 +186,7 @@ all_cov <- fin_all_cov %>%
 
 
 
-cov_data <- readRDS("1- Sample Input Data/Mean_Imputed_Tidy_World_Devel_Indic_Nov2022.rds")
+cov_data <- readRDS("1- Sample Input Data/Tidy_World_Devel_Indic_Nov2022.rds")
 cov_data <- cov_data %>% 
   distinct(
     ISO.code, year, location_name, sex_name,

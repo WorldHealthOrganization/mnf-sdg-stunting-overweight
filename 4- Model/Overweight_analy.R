@@ -33,7 +33,7 @@ all_data <- data_one %>%
       TRUE ~ 0
     )
   ) %>% 
-  select(c("country","year", "Point.Estimate.NS", "Point.Estimate.Imp","SE_val", "ShortSource",
+  dplyr::select(c("country","year", "Point.Estimate.NS", "Point.Estimate.Imp","SE_val", "ShortSource",
            "Region","SEV", "Sex", "SMART", "Surveillance", "MCI_5_yr", "SDI")) %>% 
   rename("Y" = "Point.Estimate.NS", 
          "Y_all" = "Point.Estimate.Imp",

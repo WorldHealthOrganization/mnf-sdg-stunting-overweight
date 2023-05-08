@@ -21,7 +21,7 @@ if(marker == "Overweight"){
 }
 #
 month = "Mar23" #for appending filename
-surv_data <- read_rds(paste0("1- Sample Input Data/Stunt_data_w_cov_",month,"_reg_all.rds"))
+surv_data <- read_rds(paste0("1- Sample Input Data/",marker,"_data_w_cov_",month,"_reg_all.rds"))
 
 ##### Creating a dataset where both is missing when male and female are observed.
 

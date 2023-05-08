@@ -1,8 +1,11 @@
+remove(list=ls())
+
+wd <- "~path to root directory"
+setwd(wd)
 
 marker <- "Stunting"
-Sex_val <- "NS"
 date_val <- "Mar23"
-date <- paste0(Sex_val,"_",date_val)
+date <- paste0("NS_",date_val)
 imp <- FALSE
 
 ### Path to output plots
@@ -11,15 +14,12 @@ path <- "1- Sample Input Data/Analysis files/"
 
 library(tidyverse)
 
-if(Sex_val == "NS"){
-  
-  if(marker == "Overweight"){
+if(marker == "Overweight"){
     data_one <- readRDS(paste0("1- Sample Input Data/Over_data_w_cov_",date_val,".rds"))
   }
   if(marker == "Stunting"){
     data_one <- readRDS(paste0("1- Sample Input Data/Stunt_data_w_cov_",date_val,".rds"))
   }
-}
 
 all_data <- data_one %>% 
   mutate(
@@ -48,7 +48,7 @@ all_data <- data_one %>%
 
 filename <- paste(path,marker," results ",date,".csv",sep="")
 if(imp){
-  filename <- paste(path,marker," results ",paste0(Sex_val,"_imp_",date_val),".csv",sep="")
+  filename <- paste(path,marker," results ",paste0("NS_imp_",date_val),".csv",sep="")
 }
 PP_plot_data <- read.csv(filename)
 
@@ -57,19 +57,14 @@ PP_plot_data <- PP_plot_data %>%
     "Y"="Point.Estimate.Imp","SE_var"="SSE_imp","pred"="Prediction","lower_CI2"="lower_PI","upper_CI2"="upper_PI"
   ) 
 
-
-Sex_m <- Sex_val
-if(Sex_val=="NS"){
-  Sex_m <- c("Both", "Male", "Female")
-  PP_plot_data$resid[PP_plot_data$Sex=="Both"] <- 0
-}
+Sex_m <- c("Both", "Male", "Female")
+PP_plot_data$resid[PP_plot_data$Sex=="Both"] <- 0
 
 for(j in Sex_m){
   
   P_plot_data <- PP_plot_data %>% filter(Sex == j) 
   
   date_j <- paste0(j,"_",date)
-  if(j == Sex_val){date_j <- paste0(Sex_val,"_noNS_",date)}
   
   ################## ONLY INCLUDING COUNTRIES WITH DATA #####################
   
