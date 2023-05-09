@@ -231,7 +231,7 @@ cov_data <- P_cov_data %>%
   filter(year > 1989)
 
 
-saveRDS(cov_data,"1- Sample Input Data/Mean_Imputed_IHME_Mar2023.rds")
+saveRDS(cov_data,"1- Sample Input Data/Single_Impute_Mar2023.rds")
 
 
 

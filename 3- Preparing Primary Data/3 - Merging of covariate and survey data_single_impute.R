@@ -13,9 +13,10 @@ simpleCap <- function(x) {
         sep = "", collapse = " ")
 }
 
-## Reading in covariate and Cleaned (by Age and SE) data.
-cov_data <- read_rds("1- Sample Input Data/Mean_Imputed_IHME_Mar2023.rds")
+#### Note "Imputation of IHME covariate data_single_impute.R" must be ran before you can commence.
+cov_data <- readRDS("1- Sample Input Data/Single_Impute_Mar2023.rds.rds")
 
+## Reading in covariate and Cleaned (by Age and SE) data.
 stunt_res <- read_rds(paste0("1- Sample Input Data/Global_",marker,"_SE_Age_clean.rds")) %>% 
   as_tibble() %>% 
   rename("ISO.code" = "ISO3Code") %>% 
