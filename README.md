@@ -6,8 +6,7 @@
 
 
 ## Contents
-1. Sample Input Data:
-* All the JME input files*
+1. Sample Input Data *All the JME input files*
   - List of high-income-countries (**“HIC_list_Nov_2020.csv”**)
   - MCI and SDI covariate information from IHME (**“GBD 2022 MCI and SDI.csv”**)
   - Various economic and health related covariate data used for imputation
