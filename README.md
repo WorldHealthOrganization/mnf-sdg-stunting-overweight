@@ -35,6 +35,6 @@
 The programs should be run in the following order:
 1. Run the imputation code in folder 2
 2. Run programs 1-4 in folder 3
-   Programs 3-4 in folder 3 require the covariate data. 
+   _Programs 3-4 in folder 3 require the covariate data. _
 3. Run analysis programs in folder 4 (Overweight_analy.R and Stunting_analy.R) c
 All of the outputs are written to the ```“1- Sample Input Data/Analysis files/”``` folder
