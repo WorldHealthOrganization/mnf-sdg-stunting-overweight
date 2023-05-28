@@ -1,12 +1,23 @@
 # UNICEF-WHO-World Bank Joint Child Malnutrition Estimates Stunting and Overweight Global Health Estimates
+This GitHub repository contains code and sample data for models used by UNICEF, WHO and the World Bank to generate global health estimates for stunting and overweight. 
+These estimates are published biennially as the UNICEF-WHO-World Bank Joint Malnutrition Estimates. 
+
+https://data.unicef.org/resources/jme
+
+www.who.int/teams/nutrition-and-food-safety/monitoring-nutritional-status-and-food-safety-and-events/joint-child-malnutrition-estimates
+
+https://datatopics.worldbank.org/child-malnutrition/
 
 
-## Acknowledgments 
+Details about the input data validation, processing and cleaning can be found here: https://data.unicef.org/resources/jme-2021-country-consultations/
+
+## Model
+The model used in these analyses is similar to that proposed in McLain et al. (2019) [^1]   The general statistical model is a penalized longitudinal mixed model with a heterogeneous error term. The non-linear longitudinal patterns in the outcomes were captured using penalized cubic B-splines, with country-specific intercepts and random cubic B-splines. 
+
 
 ## Procedure for Generating Stunting and Overweight Modelled Estimates
 
-
-## Contents
+### Contents
 1. Sample Input Data *All the JME input files*
   - List of high-income-countries (**“HIC_list_Nov_2020.csv”**)
   - MCI and SDI covariate information from IHME (**“GBD 2022 MCI and SDI.csv”**)
@@ -32,10 +43,30 @@
   - Programs for plotting the estimates **(“Plotting_estimates.R”)**
 
 
-## Set-up
+### Set-up
 The programs should be run in the following order:
 1. Run the imputation code in folder 2
 2. Run programs 1-4 in folder 3
    _Programs 3-4 in folder 3 require the covariate data. _
 3. Run analysis programs in folder 4 (Overweight_analy.R and Stunting_analy.R) c
 All of the outputs are written to the ```“1- Sample Input Data/Analysis files/”``` folder
+
+## Acknowledgments
+
+### Code
+We thank Alexander McLain (@alexmclain) for the development and implementation of the model code.
+
+### Conceptualization of the Model
+We thank Alexander McLain, Edward Frongillo, Monika Blössner, Juan Feng, Elaine Borghi, Chika Hayashi, Julia Krasevec, Gretchen Stevens, Mariel Finucane, Leontine Alkema and Simon Cousens, Nicholas Kassebaum for their helpful comments and contributions to this project. 
+
+### Input Data
+#### Joint Malnutrition Estimates 2023 Edition
+UNICEF: Chika Hayashi, Julia Krasevec, Yoshito Kawakatsu, Robert Johnston and Vrinda Mehra
+WHO: Elaine Borghi, Elisa Dominguez, Monica Flores-Urrutia, Giovanna Gatica-Domínguez and Richard Kumapley
+World Bank Group: Umar Serajuddin and Emi Suzuki
+
+#### Covariates
+Global Burden of Disease Collaborative Network Institute for Health Metrics and Evaluation (IHME)
+
+
+[^1]: •	McLain A.C., E.A. Frongillo, E. Borghi, and J. Feng (2019). Prediction intervals for heterogeneous penalized longitudinal models with multi-source summary measures: an application to estimating child malnutrition rates. Statistics in Medicine 38:1 1002–1012. GitHub Repo: https://github.com/alexmclain/PHMM
