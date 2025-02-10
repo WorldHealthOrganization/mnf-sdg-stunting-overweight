@@ -8,11 +8,11 @@ www.who.int/teams/nutrition-and-food-safety/monitoring-nutritional-status-and-fo
 
 https://datatopics.worldbank.org/child-malnutrition/
 
+## Input Data Validation and Processing
+Details about the input data validation, processing and cleaning can be found here: 
+- https://data.unicef.org/resources/jme-standard-methodology/
+- https://www.who.int/publications/i/item/9789240100190
 
-
-
-
-Details about the input data validation, processing and cleaning can be found here: https://data.unicef.org/resources/jme-2021-country-consultations/
 
 ## Model
 The model used in these analyses is similar to that proposed in McLain et al. (2019) [^1]   The general statistical model is a penalized longitudinal mixed model with a heterogeneous error term. The non-linear longitudinal patterns in the outcomes were captured using penalized cubic B-splines, with country-specific intercepts and random cubic B-splines. 
