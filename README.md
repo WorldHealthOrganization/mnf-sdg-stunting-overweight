@@ -9,11 +9,16 @@ www.who.int/teams/nutrition-and-food-safety/monitoring-nutritional-status-and-fo
 https://datatopics.worldbank.org/child-malnutrition/
 
 
+
+
+
 Details about the input data validation, processing and cleaning can be found here: https://data.unicef.org/resources/jme-2021-country-consultations/
 
 ## Model
 The model used in these analyses is similar to that proposed in McLain et al. (2019) [^1]   The general statistical model is a penalized longitudinal mixed model with a heterogeneous error term. The non-linear longitudinal patterns in the outcomes were captured using penalized cubic B-splines, with country-specific intercepts and random cubic B-splines. 
 
+### Updates to the Methodology since 2023 Round
+In prior rounds, a dummy variable indicating whether the survey was based on the SMART methodology was used. This is no longer used in the model
 
 ## Procedure for Generating Stunting and Overweight Modelled Estimates
 
