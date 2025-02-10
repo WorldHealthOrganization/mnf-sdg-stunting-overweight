@@ -71,7 +71,7 @@ We thank Alexander McLain (@alexmclain) for the development and implementation o
 We thank Alexander McLain, Edward Frongillo, Monika Blössner, Juan Feng, Elaine Borghi, Chika Hayashi, Julia Krasevec, Gretchen Stevens, Mariel Finucane, Leontine Alkema and Simon Cousens, Nicholas Kassebaum for their helpful comments and contributions to this project. 
 
 ### Input Data
-#### Joint Malnutrition Estimates 2023 Edition
+#### Joint Malnutrition Estimates 2025 Edition
 UNICEF: Joel Conkle, Chika Hayashi, Julia Krasevec, Robert Johnston and Vrinda Mehra
 
 WHO: Elaine Borghi, Caroline Dos Santos Costa, Elisa Dominguez, Monica Flores-Urrutia and Giovanna Gatica-Domínguez
@@ -80,6 +80,5 @@ World Bank Group: Umar Serajuddin and Emi Suzuki
 
 #### Covariates
 Global Burden of Disease Collaborative Network Institute for Health Metrics and Evaluation (IHME)
-
 
 [^1]: •	McLain A.C., E.A. Frongillo, E. Borghi, and J. Feng (2019). Prediction intervals for heterogeneous penalized longitudinal models with multi-source summary measures: an application to estimating child malnutrition rates. Statistics in Medicine 38:1 1002–1012. GitHub Repo: https://github.com/alexmclain/PHMM
