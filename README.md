@@ -9,6 +9,7 @@ www.who.int/teams/nutrition-and-food-safety/monitoring-nutritional-status-and-fo
 https://datatopics.worldbank.org/child-malnutrition/
 
 ## Editions
+Details about specific rounds can be found here:
 - 2025 Edition: https://github.com/WorldHealthOrganization/mnf-sdg-stunting-overweight-2025
 - 2023 Edition: https://github.com/WorldHealthOrganization/mnf-sdg-stunting-overweight-2023
 
