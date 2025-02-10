@@ -71,9 +71,9 @@ We thank Alexander McLain, Edward Frongillo, Monika Blössner, Juan Feng, Elaine
 
 ### Input Data
 #### Joint Malnutrition Estimates 2023 Edition
-UNICEF: Chika Hayashi, Julia Krasevec, Yoshito Kawakatsu, Robert Johnston and Vrinda Mehra
+UNICEF: Joel Conkle, Chika Hayashi, Julia Krasevec, Robert Johnston and Vrinda Mehra
 
-WHO: Elaine Borghi, Elisa Dominguez, Monica Flores-Urrutia, Giovanna Gatica-Domínguez and Richard Kumapley
+WHO: Elaine Borghi, Caroline Dos Santos Costa, Elisa Dominguez, Monica Flores-Urrutia and Giovanna Gatica-Domínguez
 
 World Bank Group: Umar Serajuddin and Emi Suzuki
 
