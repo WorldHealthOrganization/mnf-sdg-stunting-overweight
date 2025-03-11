@@ -9,8 +9,8 @@ library(tidyverse)
 
 marker <- as.character(commandArgs(trailingOnly = TRUE))
 year <- "2024"
-month <- "May" #for finding the data
-marker_f <- paste0(marker,"_noSMARTcorr")
+month <- "Dec" #for finding the data
+marker_f <- paste0(marker," December Model New Regions")
 
 #### 1. Setting Model Parameters #### 
 if(grepl("St",marker)){
@@ -25,9 +25,9 @@ if(grepl("St",marker)){
   ##    every group has a row.
   Pcov_data <- NULL
   
-  ##Number of penalized and random splines.  Equally spaced throughout the B.knots.
+  ##Penalized and random splines. 
   DF_P <- seq(1993,2023,1)
-
+  
   #Specifying the covariance matrix of the random effects.  
   #   - cov_mat="CS" (default) -> compound symmetric covariance matrix
   #   - cov_mat="UN"  -> unstructured symmetric covariance matrix
@@ -39,8 +39,8 @@ if(grepl("St",marker)){
   measure = "Overweight"
   model_formula <- ~ Sex + P_Region + MCI_5_yr
   
-  ##Number of penalized and random splines.  Equally spaced throughout the B.knots.
-  DF_P <- seq(1993,2022,5)
+  ##Penalized and random splines. 
+  DF_P <- 2005
   
   #Specifying the covariance matrix of the random effects.  
   #   - cov_mat="CS" (default) -> compound symmetric covariance matrix
@@ -118,7 +118,7 @@ for(j in 1:B){
     DF_R <- NULL  
     B.knots <- range(data_w_out$year[!is.na(data_w_out$Y)])
     B.knots[1] <- B.knots[1] - 1
-    B.knots[2] <- B.knots[2] + 10
+    B.knots[2] <- B.knots[2] + 7
   }
   
   cov_data <- as.matrix(data.frame(model.matrix(
