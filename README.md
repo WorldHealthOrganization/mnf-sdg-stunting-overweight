@@ -29,11 +29,11 @@ In prior rounds, a dummy variable indicating whether the survey was based on the
 ## Procedure for Generating Stunting and Overweight Modelled Estimates
 
 ### Contents
-1. Sample Input Data *All the JME input files*
-  - List of high-income-countries (**“HIC_list_Nov_2020.csv”**)
-  - MCI and SDI covariate information from IHME (**“GBD 2022 MCI and SDI.csv”**)
+1. Sample Input Data **/Data/**
+  - Regional Grouping (**“Country/Crosswalk_Jan_2025”**)
+  - MCI and SDI covariate information from IHME (**“IHME_covs/GBD 2022 MCI and SDI”**)
   - Various economic and health related covariate data used for imputation
-  (**“API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv**” and “**WPP2022_Demographic_Indicators_Medium.csv**”)
+  (**“Economic/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv**” and “**Demographic/WPP2022_Demographic_Indicators_Medium.csv**”)
 
 
 2. Preparing Covariates
