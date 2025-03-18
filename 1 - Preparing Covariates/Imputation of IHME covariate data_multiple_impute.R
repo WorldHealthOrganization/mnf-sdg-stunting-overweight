@@ -1,5 +1,7 @@
 # Clear environment
+rm(list = ls())
 
+# Set-up environment
 library(this.path)
 wd <- dirname(this.path::here())
 print(wd)
@@ -57,7 +59,7 @@ big_wpp_dat <- wpp_dat %>%
   )
 
 
-GDP_wide <- read_csv("Data/IHME_covs/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv", 
+GDP_wide <- read_csv("Data/WB/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv", 
                      show_col_types = FALSE)
 GDP_long <- GDP_wide %>% 
   pivot_longer(
@@ -483,7 +485,8 @@ cov_data_mean <- cov_data %>%
 saveRDS(cov_data,"Data/IHME_covs/Single_Impute_Mar2023.rds")
 
 
-
+# Clear environment
+rm(list = ls())
 
 
 
