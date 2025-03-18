@@ -1,4 +1,5 @@
-
+ 
+require("ggplot2")
 library(this.path)
 wd <- dirname(this.path::here())
 print(wd)
@@ -32,6 +33,7 @@ IHME_countries <- IHME_dat_2022 %>%
   group_by(ISO3Code) %>% 
   filter(row_number() == 1) %>% 
   select(c(ISO3Code))
+
 # Full merge
 All_countries <- surv_data %>% 
   full_join(IHME_countries, by = "ISO3Code") %>% 
