@@ -42,7 +42,7 @@ All_countries <- surv_data %>%
   )
 
 ## Merge with Fertility and GDP data
-wpp_dat <- read_csv("Data/IHME_covs/WPP2022_Demographic_Indicators_Medium.csv", 
+wpp_dat <- read_csv("Data/WPP/WPP2022_Demographic_Indicators_Medium.csv", 
                     show_col_types = FALSE) %>% 
   filter(!is.na(ISO3_code)) %>% 
   rename(year = Time, ISO3Code = ISO3_code) %>% 
