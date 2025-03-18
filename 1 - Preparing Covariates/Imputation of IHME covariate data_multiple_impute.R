@@ -1,5 +1,5 @@
- 
-require("ggplot2")
+# Clear environment
+
 library(this.path)
 wd <- dirname(this.path::here())
 print(wd)
