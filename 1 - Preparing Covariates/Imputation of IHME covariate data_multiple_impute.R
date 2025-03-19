@@ -13,6 +13,12 @@ library(mvtnorm)
 library(readxl)
 library(mice)
 library(doParallel)  
+library(foreach)
+library(ggplot2)
+library(splines)
+library(nlme)
+library(Matrix)
+
 
 ###### 1. Read in and Merge Data   ############### 
 
@@ -208,123 +214,44 @@ P_all_data <- all_cov_comp %>%
     country = ISO3Code, 
     Y= imp_MCI,
     SE_var = 1)
+saveRDS(P_all_data, file = paste0("Data/IHME_covs/P_all_data.rds"))
 
 
-
-
-no_cores <- 4 # detectCores()
-registerDoParallel(cores = no_cores)  
-cl <- makeCluster(no_cores) 
 
 settings_to_try <- 1:B
-foreach(set_i = settings_to_try)  %dopar% {
-  
-  j <- set_i
-  all_data <- P_all_data %>% 
-    filter(.imp == j & year > 2013)
-  data_w_out <- all_data %>% 
-    select(c("country", "year", "Y", "SE_var")) 
-  data_w_out$SE_pred <- data_w_out$SE_var
-  
-  DF_R <- quantile(data_w_out$year,probs = c(0.5))
-  B.knots <- range(data_w_out$year[!is.na(data_w_out$Y)])
-  B.knots[1] <- B.knots[1] - 1
-  B.knots[2] <- B.knots[2] + 10
-  DF_P <- seq(min(data_w_out$year),2022,2)
-  cov_data <- as.matrix(data.frame(Sex = all_data[,c("lpop")], lpop2 = all_data[,c("lpop")]^2))
-  colnames(cov_data)[1] <- "Sex"  
-  zero_covs <- NULL
-  cov_mat <- "VC"
-  q.order <- 2
-  
-  ##### Covariate analysis with multiple penalized functions
-  Estimation <- cmnpe(data_w_out, DF_P, DF_R, B.knots, q.order, 
-                      cov_data=cov_data, Pcov_data = NULL, 
-                      cov_mat = cov_mat, plots = FALSE, TRANS=FALSE,
-                      zero_covs = zero_covs, slope = TRUE)
-  
-  t_plot_data <- Estimation$plot_data
-  saveRDS(t_plot_data, file = paste0("Data/IHME_covs/Plot data for MCI imputation ",j,".rds"))
-  
-}
-
-save.image("Data/IHME_covs/Imputation_1Aug24.RData")
-
-plot_dat <- tibble()
-for(j in 1:B){
-  
-  t_plot_data <- readRDS(file = paste0("Data/IHME_covs/Plot data for MCI imputation ",j,".rds"))
-  t_plot_data <- t_plot_data %>% 
-    mutate(.imp = j) %>% 
-    filter(year >= 2023) %>% 
-    mutate(ISO3Code = country) %>% 
-    group_by(ISO3Code,year) %>% 
-    filter(row_number()==1) %>% 
-    ungroup() %>% 
-    select(.imp,ISO3Code, year,pred,sigma_Y_est)
-  
-  t_plot_data$MCI_imp <- t_plot_data$pred + 
-    rnorm(length(t_plot_data$sigma_Y_est),0,t_plot_data$sigma_Y_est)
-  
-  t_plot_data <- t_plot_data %>% 
-    select(.imp,ISO3Code, year,MCI_imp)
-  plot_dat <- plot_dat %>% 
-    bind_rows(t_plot_data)
-}
-
-
-P_all_data <- P_all_data %>% 
-  left_join(plot_dat) %>% 
-  mutate(
-    imp_MCI = case_when(
-      year >= 2023 ~ MCI_imp,
-      TRUE ~ imp_MCI
-    ))
-
-
-
-### Now for SDI
-P_all_data <- P_all_data %>% 
-  mutate(
-    country = ISO3Code, 
-    Y= log(imp_SDI/1.15/(1-imp_SDI/1.15)),
-    SE_var = 1) %>% 
-  group_by(.imp,ISO3Code,year) %>% 
-  filter(row_number()==1) %>% 
-  ungroup()
-
-settings_to_try <- 1:B
-foreach(set_i = settings_to_try)  %dopar% {
-  
-  j <- set_i
-  all_data <- P_all_data %>% 
-    filter(.imp == j & year > 2013)
-  data_w_out <- all_data %>% 
-    select(c("country", "year", "Y", "SE_var")) 
-  data_w_out$SE_pred <- data_w_out$SE_var
-  
-  DF_R <- quantile(data_w_out$year,probs = c(0.5))
-  B.knots <- range(data_w_out$year[!is.na(data_w_out$Y)])
-  B.knots[1] <- B.knots[1] - 1
-  B.knots[2] <- B.knots[2] + 10
-  DF_P <- seq(min(data_w_out$year),2022,2)
-  cov_data <- as.matrix(data.frame(Sex = all_data[,c("lpop")], lpop2 = all_data[,c("lpop")]^2))
-  colnames(cov_data)[1] <- "Sex"  
-  zero_covs <- NULL
-  cov_mat <- "VC"
-  q.order <- 2
-  
-  ######### Covariate analysis with multiple penalized functions
-  Estimation <- cmnpe(data_w_out, DF_P, DF_R, B.knots, q.order, 
-                      cov_data=cov_data, Pcov_data = NULL, 
-                      cov_mat = cov_mat, plots=FALSE, TRANS=FALSE,
-                      zero_covs = zero_covs, slope = TRUE)
-  cat(j,2*Estimation$df - 2*c(summary(Estimation$result$model)$logLik) + summary(Estimation$result$model)$AIC+2*c(summary(Estimation$result$model)$logLik),"\n")
-  
-  t_plot_data <- Estimation$plot_data
-  saveRDS(t_plot_data, file = paste0("Data/IHME_covs/Plot data for SDI imputation ",j,".rds"))
-  
-}
+foreach(set_i = settings_to_try,
+        .packages = (.packages()))  %dopar% {
+          source("Utils/Programs_Feb_2020.R")
+          
+          j <- set_i
+          all_data <- P_all_data %>% 
+            filter(.imp == j & year > 2013)
+          data_w_out <- all_data %>% 
+            select(c("country", "year", "Y", "SE_var")) 
+          data_w_out$SE_pred <- data_w_out$SE_var
+          
+          DF_R <- quantile(data_w_out$year,probs = c(0.5))
+          B.knots <- range(data_w_out$year[!is.na(data_w_out$Y)])
+          B.knots[1] <- B.knots[1] - 1
+          B.knots[2] <- B.knots[2] + 10
+          DF_P <- seq(min(data_w_out$year),2022,2)
+          cov_data <- as.matrix(data.frame(Sex = all_data[,c("lpop")], lpop2 = all_data[,c("lpop")]^2))
+          colnames(cov_data)[1] <- "Sex"  
+          zero_covs <- NULL
+          cov_mat <- "VC"
+          q.order <- 2
+          
+          ######### Covariate analysis with multiple penalized functions
+          Estimation <- cmnpe(data_w_out, DF_P, DF_R, B.knots, q.order, 
+                              cov_data=cov_data, Pcov_data = NULL, 
+                              cov_mat = cov_mat, plots=FALSE, TRANS=FALSE,
+                              zero_covs = zero_covs, slope = TRUE)
+          cat(j,2*Estimation$df - 2*c(summary(Estimation$result$model)$logLik) + summary(Estimation$result$model)$AIC+2*c(summary(Estimation$result$model)$logLik),"\n")
+          
+          t_plot_data <- Estimation$plot_data
+          saveRDS(t_plot_data, file = paste0("Data/IHME_covs/Plot data for SDI imputation ",j,".rds"))
+          
+        }
 
 save.image("Data/IHME_covs/Imputation_1Aug24.RData")
 
@@ -484,9 +411,10 @@ cov_data_mean <- cov_data %>%
 
 saveRDS(cov_data,"Data/IHME_covs/Single_Impute_Mar2023.rds")
 
-
-# Clear environment
+## Clear Environment
 rm(list = ls())
+
+
 
 
 
