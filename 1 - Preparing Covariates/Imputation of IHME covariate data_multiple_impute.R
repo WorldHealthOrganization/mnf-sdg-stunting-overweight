@@ -411,6 +411,14 @@ cov_data_mean <- cov_data %>%
 
 saveRDS(cov_data,"Data/IHME_covs/Single_Impute_Mar2023.rds")
 
+
+##### 6. Erase Intermediate Files  ############### 
+
+for(j in 1:B){
+  file.remove(paste0("Data/IHME_covs/Plot data for SDI imputation ",j,".rds"))
+  file.remove(paste0("Data/IHME_covs/Plot data for MCI imputation ",j,".rds"))
+}
+
 ## Clear Environment
 rm(list = ls())
 
