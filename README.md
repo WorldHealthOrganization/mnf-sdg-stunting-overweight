@@ -87,7 +87,7 @@ We thank Alexander McLain (@alexmclain) for the development and implementation o
 We thank Alexander McLain, Edward Frongillo, Monika Blössner, Juan Feng, Elaine Borghi, Chika Hayashi, Julia Krasevec, Gretchen Stevens, Mariel Finucane, Leontine Alkema and Simon Cousens, Nicholas Kassebaum for their helpful comments and contributions to this project. 
 
 ### Update to include Sex Specific Estimates
-We thank Alexander McLain, Edward Frongillo, Elaine Borghi, Caroline Dos Santos Costa, Elisa Dominguez, Monica Flores-Urrutia, Giovanna Gatica-Domínguez, Chika Hayashi, Julia Krasevec, Robert Johnston and Emi Suzuki for their efforts and contributions to update the methodology to include sex-specific estimates.
+We thank Alexander McLain, Edward Frongillo, Elaine Borghi, Elisa Dominguez, Caroline Dos Santos Costa, Monica Flores-Urrutia, Giovanna Gatica-Domínguez, Chika Hayashi, Robert Johnston, Julia Krasevec, Richard Kumapley and Emi Suzuki for their efforts and contributions to update the methodology to include sex-specific estimates.
 
 ### Input Data
 #### Joint Malnutrition Estimates 2025 Edition
