@@ -26,47 +26,47 @@ In prior rounds, a dummy variable indicating whether the survey was based on the
 
 ### Contents
 
-+ Data  `\Data`
++ Data 
   - Economic Covariate Data from the World Bank `\WB\API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv`
   - Demographic Covariate Data from the United Nations Population Division (UNPD) `\WPP\WPP2022_Demographic_Indicators_Medium.csv`
-  - MCI and SDI covariate information from IHME `\IHME_covs\GBD 2022 MCI and SDI`
+  - MCI and SDI covariate information from IHME `\IHME_covs\GBD 2022 MCI and SDI.csv`
+  - Regional Grouping `\Country\Crosswalk_Jan_2025.xlsx`
+  - Sample Input Data `\JME\2024\Raw`
 
-+ 0- Setup
-  - R code to install required packages (**“/1- Install Required Packages”**)
++ Utils
+  - Contains various programs and functions required to run the analyses.
 
-+ 
-1. Sample Input Data **/Data/**
-  - Regional Grouping (**“Country/Crosswalk_Jan_2025”**)
-  - 
-  - Various economic and health related covariate data used for imputation
-  and “**Demographic/WPP2022_Demographic_Indicators_Medium.csv**”)
++ 0 - Setup
+  - R code to install required packages `1- Install Required Packages.R`
 
++ 1 - Preparing Covariates
+  - R code to perform multiple imputation of the covariate data   `Imputation of IHME covariate data_multiple_impute.R`
 
-2. Preparing Covariates
-  -  R code to perform single imputation of the covariate data
- **(“Imputation of IHME covariate data_single_impute.R”)**
++ 2 - Preparing Primary Data
+  - R code to calculate (if possible) and impute missing SE information `1 - SE_clean_and_impute.R`
+  - R code to integrate data sources that were originally collected using different (non-standard) age ranges `2 - Age_range_analysis.R`
+  - R code to merge covariate and survey data `3 - Merging Survey_Covariate_Data.R`
+  - R code to generates approximate sex-specific prevalence rates for specific years and countries (solely for use in visual figures) `4 - Sex_cross_walk.R`
 
++ 3 - Model
+  - R code for performing a multiple imputed analysis of the data for stunting or overweight `1 - Analysis_MI.R`
 
-3.  Preparing Primary Data
-  - R code to calculate (if possible) and impute missing SE information (“**1 - SE_clean_and_impute.R”**)
-  - R code to cross-walk surveys with partial age ranges **(“2 - Age_range_analysis.R”)**.
-  - R code to merge covariate and survey data **(“3 - Merging of covariate and survey data_single_impute.R”)**
-  - R code to cross-walk surveys with partial sex coverage, and remove redundant sex combinations **(i.e., remove “both” when “male” and “female” are included) (“4 - Sex_cross_walk_single_impute.R”)**
-
-
-4. Model
-  - R functions needed for various modeling stages **(“Programs_Feb_2020.R” and “Programs_Cleaning_SE.R”)**
-  - Programs for analyzing the data **(“Overweight_analy.R” and “Stunting_analy.R”)**
-  - Programs for plotting the estimates **(“Plotting_estimates.R”)**
-
++ 4 - Results
+  - R code for pooling imputed estimates `1 - Summarizing_imputed_results.R`
 
 ### Set-up
 The programs should be run in the following order:
-1. Run the imputation code in folder 2
+1. Set-Up: Run `1- Install Required Packages.R`
+1. Preparing Covariates: Run `1- Imputation of IHME covariate data_multiple_impute.R`
 2. Run programs 1-4 in folder 3
    _Programs 3-4 in folder 3 require the covariate data. _
 3. Run analysis programs in folder 4 (Overweight_analy.R and Stunting_analy.R) c
-All of the outputs are written to the ```“1- Sample Input Data/Analysis files/”``` folder
+
+All the programs in the folders `2- Preparing Primary Data`, `3- Model`, and `4- Results` need to be run separately for both Stunting and Overweight.
+
+Ensure that you read each file carefully to verify that the files are named and stored correctly.
+
+You can do this by setting marker to "Stunting" or "Overweight"
 
 ## Acknowledgments
 
@@ -86,8 +86,8 @@ World Bank Group: Umar Serajuddin and Emi Suzuki
 
 #### Covariates
 Global Burden of Disease Collaborative Network Institute for Health Metrics and Evaluation (IHME)
-WB
-United Nations Population Division
+United Nations Population Division (UNPD)
+World Bank (WB)
 
 [^1]: •	McLain A.C., E.A. Frongillo, E. Borghi, and J. Feng (2019). Prediction intervals for heterogeneous penalized longitudinal models with multi-source summary measures: an application to estimating child malnutrition rates. Statistics in Medicine 38:1 1002–1012. <a href="https://doi.org/10.1093/jn/nxac072">doi.org/10.1093/jn/nxac072</a> GitHub Repo: https://github.com/alexmclain/PHMM
 [^2]: •	Saraswati, Chitra M, Elaine Borghi, João JR da Silva Breda, Monica C Flores-Urrutia, Julianne Williams, Chika Hayashi, Edward A Frongillo, and Alexander C McLain. 2022. “Estimating Childhood Stunting and Overweight Trends in the European Region from Sparse Longitudinal Data.” *The Journal of Nutrition* 152 (7): 1773–82 <a href="https://doi.org/10.1002/sim.8024">doi.org/10.1002/sim.8024</a>
