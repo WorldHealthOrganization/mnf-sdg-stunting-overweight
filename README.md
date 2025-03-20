@@ -57,16 +57,23 @@ In prior rounds, a dummy variable indicating whether the survey was based on the
 ### Set-up
 The programs should be run in the following order:
 1. Set-Up: Run `1- Install Required Packages.R`
-1. Preparing Covariates: Run `1- Imputation of IHME covariate data_multiple_impute.R`
-2. Run programs 1-4 in folder 3
-   _Programs 3-4 in folder 3 require the covariate data. _
-3. Run analysis programs in folder 4 (Overweight_analy.R and Stunting_analy.R) c
+2. Preparing Covariates: Run `1- Imputation of IHME covariate data_multiple_impute.R`
+3. Preparing Primary Data: Run `1 - SE_clean_and_impute.R`
+4. Preparing Primary Data: Run `2 - Age_range_analysis.R`
+5. Preparing Primary Data: Run `3 - Merging Survey_Covariate_Data.R`
+6. Preparing Primary Data: Run `4 - Sex_cross_walk.R`
+7. Model: Run `1 - Analysis_MI.R`
+8. Results: Run `1 - Summarizing_imputed_results.R`
 
 All the programs in the folders `2- Preparing Primary Data`, `3- Model`, and `4- Results` need to be run separately for both Stunting and Overweight.
 
 Ensure that you read each file carefully to verify that the files are named and stored correctly.
 
-You can do this by setting marker to "Stunting" or "Overweight"
+You can do this by setting marker to "Stunting" or "Overweight" in each script
+```
+marker<-"Stunting" 
+marker<-"Overweight"
+```
 
 ## Acknowledgments
 
