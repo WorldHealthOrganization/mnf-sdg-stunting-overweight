@@ -26,10 +26,10 @@ In prior rounds, a dummy variable indicating whether the survey was based on the
 
 ### Contents
 
-+ Data  **"/Data"**
-  - Economic Covariate Data from the World Bank (**"/WB/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv"**)
-  - Demographic Covariate Data from the United Nations Population Division (UNPD) (**"/WPP/WPP2022_Demographic_Indicators_Medium.csv"**)
-  - MCI and SDI covariate information from IHME (**“/IHME_covs/GBD 2022 MCI and SDI”**)
++ Data  `\Data`
+  - Economic Covariate Data from the World Bank `\WB\API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv`
+  - Demographic Covariate Data from the United Nations Population Division (UNPD) `\WPP\WPP2022_Demographic_Indicators_Medium.csv`
+  - MCI and SDI covariate information from IHME `\IHME_covs\GBD 2022 MCI and SDI`
 
 + 0- Setup
   - R code to install required packages (**“/1- Install Required Packages”**)
