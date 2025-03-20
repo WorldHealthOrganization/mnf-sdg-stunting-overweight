@@ -9,7 +9,8 @@ library(tidyverse)
 library(dplyr)
 library(nlme)
 
-marker <- as.character(commandArgs(trailingOnly = TRUE))
+# marker can be "Stunting","Overweight"
+marker <- "Stunting"
 year <- "2024"
 
 stunt_data <- readRDS(paste0("Data/JME/",year,"/Cleaned/",marker,"_SE_clean.rds"))

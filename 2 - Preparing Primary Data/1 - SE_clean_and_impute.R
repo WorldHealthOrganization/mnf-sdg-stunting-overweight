@@ -13,8 +13,9 @@ library(tidyverse)
 library(readxl)
 
 #### 1. Loading and formatting the data ####
+# marker can be "Stunting","Overweight"
+marker <- "Stunting"
 
-marker <- as.character(commandArgs(trailingOnly = TRUE))
 handle <- "JME_Country_Level_Input_"
 year <- "2024"
 
