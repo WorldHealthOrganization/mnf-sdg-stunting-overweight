@@ -106,6 +106,6 @@ World Bank Group (WB)
 
 [^1]: •	McLain A.C., E.A. Frongillo, E. Borghi, and J. Feng (2019). Prediction intervals for heterogeneous penalized longitudinal models with multi-source summary measures: an application to estimating child malnutrition rates. Statistics in Medicine 38:1 1002–1012. <a href="https://doi.org/10.1093/jn/nxac072">doi.org/10.1093/jn/nxac072</a> GitHub Repo: https://github.com/alexmclain/PHMM
 [^2]: •	Saraswati, Chitra M, Elaine Borghi, João JR da Silva Breda, Monica C Flores-Urrutia, Julianne Williams, Chika Hayashi, Edward A Frongillo, and Alexander C McLain. 2022. “Estimating Childhood Stunting and Overweight Trends in the European Region from Sparse Longitudinal Data.” *The Journal of Nutrition* 152 (7): 1773–82 <a href="https://doi.org/10.1002/sim.8024">doi.org/10.1002/sim.8024</a>
-[^3]: •	Finaret, Amelia B. 2022. “Advancing Nutritional Epidemiology by Linking Datasets and Addressing Data Quality.” *The Journal of Nutrition* 152 (7): 1595–96. <a  ref="https://doi.org/10.1093/jn/nxac092">doi.org/10.1093/jn/nxac092</a>
+[^3]: •	Finaret, Amelia B. 2022. “Advancing Nutritional Epidemiology by Linking Datasets and Addressing Data Quality.” *The Journal of Nutrition* 152 (7): 1595–96. <a href="https://doi.org/10.1093/jn/nxac092">doi.org/10.1093/jn/nxac092</a>
 
 
