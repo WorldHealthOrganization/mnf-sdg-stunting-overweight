@@ -86,7 +86,7 @@ We thank Alexander McLain (@alexmclain) for the development and implementation o
 ### Conceptualization of the Model
 We thank Alexander McLain, Edward Frongillo, Monika Blössner, Juan Feng, Elaine Borghi, Chika Hayashi, Julia Krasevec, Gretchen Stevens, Mariel Finucane, Leontine Alkema and Simon Cousens, Nicholas Kassebaum for their helpful comments and contributions to this project. 
 
-### Update to include Sex Specific 
+### Update to include Sex Specific Estimates
 We thank Alexander McLain, Edward Frongillo, Elaine Borghi, Caroline Dos Santos Costa, Elisa Dominguez, Monica Flores-Urrutia, Giovanna Gatica-Domínguez, Chika Hayashi, Julia Krasevec, Robert Johnston and Emi Suzuki for their efforts and contributions to update the methodology to include sex-specific estimates.
 
 ### Input Data
@@ -99,7 +99,9 @@ World Bank Group: Umar Serajuddin and Emi Suzuki
 
 #### Covariates
 Global Burden of Disease Collaborative Network Institute for Health Metrics and Evaluation (IHME)
+
 United Nations Population Division (UNPD)
+
 World Bank (WB)
 
 [^1]: •	McLain A.C., E.A. Frongillo, E. Borghi, and J. Feng (2019). Prediction intervals for heterogeneous penalized longitudinal models with multi-source summary measures: an application to estimating child malnutrition rates. Statistics in Medicine 38:1 1002–1012. <a href="https://doi.org/10.1093/jn/nxac072">doi.org/10.1093/jn/nxac072</a> GitHub Repo: https://github.com/alexmclain/PHMM
