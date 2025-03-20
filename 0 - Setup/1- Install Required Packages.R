@@ -37,7 +37,28 @@ check_doParallel<-require(doParallel)
 if (check_doParallel==FALSE) {
   install.packages("doParallel")
 }
- 
+
+
+check_ggplot2<-require(ggplot2)
+if (check_ggplot2==FALSE) {
+  install.packages("check_ggplot2")
+}
+
+check_splines<-require(splines)
+if (check_splines==FALSE) {
+  install.packages("splines")
+}
+
+check_nlme<-require(nlme)
+if (check_nlme==FALSE) {
+  install.packages("nlme")
+}
+
+check_Matrix<-require(Matrix)
+if (check_Matrix==FALSE) {
+  install.packages("Matrix")
+}
+
 # clear environment
 rm(list = ls())
 
