@@ -79,7 +79,9 @@ We thank Alexander McLain, Edward Frongillo, Monika Blössner, Juan Feng, Elaine
 ### Input Data
 #### Joint Malnutrition Estimates 2025 Edition
 UNICEF: Joel Conkle, Chika Hayashi, Julia Krasevec, Robert Johnston and Vrinda Mehra
+
 WHO: Elaine Borghi, Caroline Dos Santos Costa, Elisa Dominguez, Monica Flores-Urrutia and Giovanna Gatica-Domínguez
+
 World Bank Group: Umar Serajuddin and Emi Suzuki
 
 #### Covariates
