@@ -91,7 +91,7 @@ We thank Alexander McLain, Edward Frongillo, Elaine Borghi, Elisa Dominguez, Car
 
 ### Input Data
 #### Joint Malnutrition Estimates 2025 Edition
-UNICEF: Joel Conkle, Chika Hayashi, Julia Krasevec, Robert Johnston and Vrinda Mehra
+UNICEF: Chika Hayashi, Julia Krasevec, Robert Johnston, Joel Conkle, Vrinda Mehra, Alessandro Catalini
 
 WHO: Elaine Borghi, Caroline Dos Santos Costa, Elisa Dominguez, Monica Flores-Urrutia and Giovanna Gatica-Domínguez
 
